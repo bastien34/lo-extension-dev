@@ -18,9 +18,9 @@ def get_version(rel_path: str) -> str:
             return line.split(delim)[1]
     raise RuntimeError("Unable to find version string.")
 
-DISTUTILS_DEBUG = True
 
 long_description = read("README.rst")
+
 
 setup(
     name="lo-extension-dev",
@@ -31,23 +31,24 @@ setup(
     url="https://github.com/bastien34/lo-extension",
     author="Bastien Roques",
     classifiers=[
-        "Production/Stable Status :: 5",
-        "Intended Audience :: Developers",
-        "Topic :: Software Development :: Build Tools",
-        "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
+        # "Production/Stable Status :: 5",
+        # "Intended Audience :: Developers",
+        # "Topic :: Software Development :: Build Tools",
+        # "License :: OSI Approved :: MIT License",
+        # "Programming Language :: Python :: 3",
+        # "Programming Language :: Python :: 3.7",
+        # "Programming Language :: Python :: 3.8",
+        # "Programming Language :: Python :: 3.9",
+        # "Programming Language :: Python :: 3.10",
+        # "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3 :: Only",
     ],
     keywords="extension, libreoffice, development",
-    package_dir={"": "src/lo-extension-dev"},
+    package_dir={"": "src"},
     packages=find_packages(where="src/lo-extension-dev"),
+
     python_requires=">=3.7, <4",
-    install_requires=['argparse'],
+    # install_requires=['argparse'],
     setup_requires=['argparse', 'psutil'],
     include_package_data = True,
     entry_points={
@@ -55,7 +56,7 @@ setup(
             'manage=lo-extension-dev.manage:main',
         ],
     },
-    project_urls={  # Optional
+    project_urls={
         "Bug Reports": "https://github.com/bastien34/lo-extension/issues",
         "Funding": "https://donate.pypi.org",
         "Source": "https://github.com/bastien34/lo-extension",

@@ -21,4 +21,8 @@ your code. This command line tool helps achieving this goal.
 
 
 Installation
-============
+------------
+
+::
+
+  $ pip install lo-extension-dev

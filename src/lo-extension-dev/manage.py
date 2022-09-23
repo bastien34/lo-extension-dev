@@ -15,7 +15,6 @@ from shutil import copytree, ignore_patterns, make_archive
 import xml.etree.ElementTree as ET
 from subprocess import Popen, PIPE, run
 
-
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger('Extension factory')
 
