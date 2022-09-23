@@ -126,8 +126,7 @@ class Extension:
         return os.path.join(self.install_path, MACROS_DIRECTORY)
 
 
-if __name__ == '__main__':
-
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-o', '--open', help="Open installation directory",
                         action='store_true')
@@ -144,9 +143,9 @@ if __name__ == '__main__':
                         action='store_true')
     args = parser.parse_args()
 
-    if 'soffice.bin' not in (i.name() for i in psutil.process_iter()):
-        logger.error(' LibreOffice is not started. Operation aborted.')
-        exit()
+    # if 'soffice.bin' not in (i.name() for i in psutil.process_iter()):
+    #     logger.error(' LibreOffice is not started. Operation aborted.')
+    #     exit()
     restart_needed = False
 
     ext = Extension()
@@ -171,3 +170,6 @@ if __name__ == '__main__':
 
     if restart_needed:
         logger.info('Libreoffice should be restarted now.')
+
+if __name__ == '__main__':
+    main()

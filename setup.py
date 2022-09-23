@@ -18,12 +18,13 @@ def get_version(rel_path: str) -> str:
             return line.split(delim)[1]
     raise RuntimeError("Unable to find version string.")
 
+DISTUTILS_DEBUG = True
 
 long_description = read("README.rst")
 
 setup(
     name="lo-extension-dev",
-    version=get_version('lo-extension/__init__.py'),
+    version=get_version('src/lo-extension-dev/__init__.py'),
     description="A tool to help developing LibreOffice Extension.",  # Optional
     long_description=long_description,
     long_description_content_type="text/x-rst",
@@ -43,13 +44,15 @@ setup(
         "Programming Language :: Python :: 3 :: Only",
     ],
     keywords="extension, libreoffice, development",
-    package_dir={"": "src"},
-    packages=find_packages(where="src"),
+    package_dir={"": "src/lo-extension-dev"},
+    packages=find_packages(where="src/lo-extension-dev"),
     python_requires=">=3.7, <4",
-    install_requires=[],
+    install_requires=['argparse'],
+    setup_requires=['argparse', 'psutil'],
+    include_package_data = True,
     entry_points={
         'console_scripts': [
-            'lo-extension=lo-extension:main',
+            'manage=lo-extension-dev.manage:main',
         ],
     },
     project_urls={  # Optional
