@@ -24,7 +24,7 @@ long_description = read("README.rst")
 
 setup(
     name="lo-extension-dev",
-    version=get_version('src/lo-extension-dev/__init__.py'),
+    version=get_version('src/lo_extension_dev/__init__.py'),
     description="A tool to help developing LibreOffice Extension.",  # Optional
     long_description=long_description,
     long_description_content_type="text/x-rst",
@@ -45,7 +45,7 @@ setup(
     ],
     keywords="extension, libreoffice, development",
     package_dir={"": "src"},
-    packages=find_packages(where="src/lo-extension-dev"),
+    packages=find_packages(where="src/lo_extension_dev"),
 
     python_requires=">=3.7, <4",
     # install_requires=['argparse'],
@@ -53,7 +53,7 @@ setup(
     include_package_data = True,
     entry_points={
         'console_scripts': [
-            'manage=lo-extension-dev.manage:main',
+            'manage_lo_extension_dev:main',
         ],
     },
     project_urls={
