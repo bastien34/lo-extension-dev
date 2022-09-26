@@ -99,19 +99,26 @@ menu and toolbar menu. The second one hold the extension configuration.
 extension.yml
 ~~~~~~~~~~~~~
 - version : version number in format 0.0.1
+
 - extension_name : name of your extension (no space)
+
 - file_extension : zip or oxt
+
 - lib : com.company.my_extension
-- macros_directory : in this example, it is `python`. In some project, it is
-`macros`.
+
+- macros_directory : in this example, it is `python`. In some project, it is `macros`.
+
 -addons_conf : it shouldn't be changed. The file holding menubar & toolbar conf.
+
 - menu_name : the label displayed in the menu bar.
 
 
 addons_conf.yml
 ~~~~~~~~~~~~~~~
 This files has two main sections :
+
 - OfficeMenuBar
+
 - OfficeToolBar
 
 You can create a `submenu`. Don't forget, the keys following a submenu have to

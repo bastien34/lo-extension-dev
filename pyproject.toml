@@ -7,7 +7,7 @@ name = "lo-extension-dev"
 description = "A tool to help developing LibreOffice Extension."
 readme = "README.rst"
 requires-python = ">=3.7"
-keywords = ["one", "two"]
+keywords = ["extension", "libreoffice", "development"]
 license = { file="LICENSE.txt" }
 classifiers = [
         "Programming Language :: Python :: 3.7",
