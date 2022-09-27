@@ -113,7 +113,7 @@ class AddonUi:
 
     def read_addon_yaml(self):
         cp = pathlib.Path.cwd()
-        with open((cp / config['addons_conf']), 'r') as f:
+        with open((cp / config['addons']), 'r') as f:
             self.conf = yaml.safe_load(f)
 
 

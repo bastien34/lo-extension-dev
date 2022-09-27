@@ -42,7 +42,7 @@ architecture. Your extension code is in `src/`.
 ::
 
     ─ my_extension
-        │   ├── addons_conf.yml
+        │   ├── addons.yml
     │   ├── Addons.xcu
     │   ├── extension
     │   │   ├── 0.0.1
@@ -108,12 +108,12 @@ extension.yml
 
 - macros_directory : in this example, it is `python`. In some project, it is `macros`.
 
--addons_conf : it shouldn't be changed. The file holding menubar & toolbar conf.
+-addons : it shouldn't be changed. The file holding menubar & toolbar conf.
 
 - menu_name : the label displayed in the menu bar.
 
 
-addons_conf.yml
+addons.yml
 ~~~~~~~~~~~~~~~
 This files has two main sections :
 
