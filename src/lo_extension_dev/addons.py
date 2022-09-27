@@ -17,7 +17,7 @@ IMAGE_LOCATION = "%origin%/assets/"
 def get_command_line(command):
     fn = config['extension_name']
     lib = f"vnd.sun.star.script:{fn}.oxt|python|{fn}.py$"
-    return f"{config['lib']}{command}?language=Python&location=user:uno_packages"
+    return f"{lib}{command}?language=Python&location=user:uno_packages"
 
 
 AT_REPLACE = ('oor:op', 'replace')
