@@ -48,7 +48,9 @@ class AddonUi:
         root.appendChild(n_addonUI)
 
         # add Office Menu Bar
-        n_addonUI.appendChild(self.build_menu_bar())
+        mb = self.build_menu_bar()
+        if mb:
+            n_addonUI.appendChild(mb)
 
         # different strategy as we build tb & images in the same time
         self.build_toolbar(n_addonUI)
@@ -64,18 +66,20 @@ class AddonUi:
 
         # Menu bar configuration
         menu_bar_conf = self.conf.get('OfficeMenuBar')
+        
+        if menu_bar_conf:
 
-        submenu = node.appendChild(self.get_new_submenu_node())
-        for i, (k, v) in enumerate(menu_bar_conf.items(), 1):
-            if 'submenu' in v.keys():
-                # This is a new submenu
-                node.appendChild(self.create_subentries(v, i))
-            else:
-                # This is new section entry
-                m = MenuEntry(self.doc, k, v['title'], i)
-                submenu.appendChild(m.root)
+            submenu = node.appendChild(self.get_new_submenu_node())
+            for i, (k, v) in enumerate(menu_bar_conf.items(), 1):
+                if 'submenu' in v.keys():
+                    # This is a new submenu
+                    node.appendChild(self.create_subentries(v, i))
+                else:
+                    # This is new section entry
+                    m = MenuEntry(self.doc, k, v['title'], i)
+                    submenu.appendChild(m.root)
 
-        return mb
+            return mb
 
     def build_toolbar(self, root):
         tb = get_node(self.doc, at_name('OfficeToolBar'),)
