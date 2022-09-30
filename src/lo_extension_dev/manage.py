@@ -42,7 +42,6 @@ class Extension:
         ET.register_namespace("", "http://openoffice.org/extensions/description/2006")
         tree.write(description_file)
 
-
     def generate_addons(self):
         """
         Addons are generated from a conf file `addon_ui.yml`
@@ -98,7 +97,6 @@ class Extension:
 
     def _install(self):
         extension_path = f"./{cfg['output']}/{cfg['extension_fn']}"
-        logger.debug(f' Extension path: {extension_path}')
         run(['unopkg', 'add', '-f', extension_path])
 
     def uninstall(self):
