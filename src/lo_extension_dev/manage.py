@@ -175,6 +175,7 @@ def main():
         ext.make()
         ext.install()
         ext.set_development_env()
+        restart_needed = True
 
     if restart_needed:
         logger.info('Libreoffice should be restarted now.')
