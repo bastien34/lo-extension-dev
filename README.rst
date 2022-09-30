@@ -32,9 +32,12 @@ Installation
 
   $ pip install lo-extension-dev
 
-**Attention: this tool needs two configuration files to work ! Create in your
-root directory `extension.yml` and `addons.yml` to auto generate  `Addons.xcu`
-files in charge of OfficeMenuBar & OfficeToolBar.**
+**Attention: this tool needs two configuration files to work !**
+
+Create in your root directory `extension.yml` and `addons.yml` to auto generate  `Addons.xcu`
+files in charge of OfficeMenuBar & OfficeToolBar.
+
+The module holds an example of these files.
 
 
 Usage
