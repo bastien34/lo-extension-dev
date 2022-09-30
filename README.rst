@@ -34,7 +34,7 @@ Installation
 
 **Attention: this tool needs two configuration files to work ! Create in your
 root directory `extension.yml` and `addons.yml` to auto generate  `Addons.xcu`
-files in charge of OfficeMenuBar & OfficeToolBar.
+files in charge of OfficeMenuBar & OfficeToolBar.**
 
 
 Usage
@@ -99,6 +99,7 @@ Configuration files
 
 We use two configuration files, using `yaml` syntax. One to generate menubar
 menu and toolbar menu. The second one hold the extension configuration.
+
 
 extension.yml
 ~~~~~~~~~~~~~
