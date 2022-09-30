@@ -2,6 +2,8 @@ import xml.dom.minidom
 import yaml
 import pathlib
 
+ADDONS_CONFIG_FILE = 'addons.yml'
+
 config = {}
 
 attrib = {
@@ -61,7 +63,7 @@ class AddonUi:
         node = get_node(self.doc, at_name(config['lib']), AT_REPLACE)
         mb.appendChild(node)
 
-        node.appendChild(get_prop(self.doc, 'Title', 'RDT'))
+        node.appendChild(get_prop(self.doc, 'Title', config['menu_name']))
         node.appendChild(get_prop(self.doc, 'Target', '_self'))
 
         # Menu bar configuration
@@ -83,7 +85,7 @@ class AddonUi:
 
     def build_toolbar(self, root):
         tb = get_node(self.doc, at_name('OfficeToolBar'),)
-        tb_node = get_node(self.doc, at_name("rdt_tools.OfficeToolBar"), AT_REPLACE)
+        tb_node = get_node(self.doc, at_name(f"{config['extension_name']}.OfficeToolBar"), AT_REPLACE)
         tb.appendChild(tb_node)
         root.appendChild(tb)
 
@@ -117,7 +119,7 @@ class AddonUi:
 
     def read_addon_yaml(self):
         cp = pathlib.Path.cwd()
-        with open((cp / config['addons']), 'r') as f:
+        with open((cp / ADDONS_CONFIG_FILE), 'r') as f:
             self.conf = yaml.safe_load(f)
 
 
