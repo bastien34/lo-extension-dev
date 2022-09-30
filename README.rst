@@ -5,7 +5,7 @@ Libreoffice Developing Helper
 
 This tool helps developing LibreOffice Extension. It mainly does:
 
-    - build an LibreOffice extension from your source
+    - build a LibreOffice extension from source
 
     - create the `Addons.xcu` file following a simple yaml conf file.
 
@@ -13,13 +13,16 @@ This tool helps developing LibreOffice Extension. It mainly does:
 
     - create shortcut from installed extension to development files
 
+Note that it hasn't been tested on other system than Linux.
+
 WHY
 ---
-When developing for LibreOffice, it is common to often reinstall the extension
-to test it. It means compiling, uninstalling, installing. This tasks are time
-consuming. Beside, if you want to make modification of your code without
-reinstalling, you need to create some shortcuts from the installation path to
-your code. This command line tool helps achieving this goal.
+When developing for LibreOffice, it is common to reinstall an extension
+to test it, which means compiling, uninstalling, installing. These tasks are
+quite boring. Beside, after a reinstallation, you need to create again and
+again some symlinks from the installation path to your code.
+
+This command line tool helps achieving this goal.
 
 
 Installation
@@ -29,15 +32,16 @@ Installation
 
   $ pip install lo-extension-dev
 
-Then create two config files using yaml. One to configure your extension, the
-other one to create the `Addons.xcu` files (OfficeMenuBar & OfficeToolBar).
+**Attention: this tool needs two configuration files to work ! Create in your
+root directory `extension.yml` and `addons.yml` to auto generate  `Addons.xcu`
+files in charge of OfficeMenuBar & OfficeToolBar.
 
 
 Usage
 -----
 
 To develop a LibreOffice extension, we advocate to use the following
-architecture. Your extension code is in `src/`.
+architecture. Extension code is in `src/`.
 
 ::
 
@@ -73,7 +77,7 @@ architecture. Your extension code is in `src/`.
     │           ├── license_en.txt
     └── README.md
 
-Once installed, a functino `manage_extension` is available in your terminal.
+Once installed, a command line `manage_extension` is available in your terminal.
 
 To get help, just type:
 
@@ -123,6 +127,3 @@ This files has two main sections :
 
 You can create a `submenu`. Don't forget, the keys following a submenu have to
 be named as the function they call. It's the same logic for the OfficeToolBar.
-
-
-

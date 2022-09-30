@@ -17,5 +17,8 @@ def load_config(file_str: str='extension.yml') -> None:
         'user_directory': os.path.expanduser('~'),
     })
 
-
-load_config()
+try:
+    load_config()
+except FileNotFoundError:
+    raise(FileNotFoundError("<extension.yml> is missing. Create it in root "
+                            "directory."))

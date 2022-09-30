@@ -118,8 +118,13 @@ class AddonUi:
         return nn
 
     def read_addon_yaml(self):
-        cp = pathlib.Path.cwd()
-        with open((cp / ADDONS_CONFIG_FILE), 'r') as f:
+        cp = (pathlib.Path.cwd() / ADDONS_CONFIG_FILE)
+        try:
+            assert(cp.exists())
+        except AssertionError:
+            raise(FileNotFoundError(f"<{ADDONS_CONFIG_FILE}> is missing. "
+                                    f"It must be found in root directory."))
+        with open(cp, 'r') as f:
             self.conf = yaml.safe_load(f)
 
 
