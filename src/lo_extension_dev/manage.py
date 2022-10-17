@@ -69,19 +69,19 @@ class Extension:
         search = re.compile('uno\_packages\/(.*)\.tmp\_\/(.*)\/')
         res = search.findall(output.decode('utf-8'))
         if res:
-            code = self._get_installation_code(res)
-            cache_dir = code + ".tmp_"
-            return os.path.join(
-                cfg['user_directory'],
-                '.config/libreoffice/4/user/uno_packages/cache/uno_packages',
-                cache_dir,
-                self.filename
-            )
+            return self._get_installation_code(res)
 
     def _get_installation_code(self, re_search):
+        uno_pkg = '.config/libreoffice/4/user/uno_packages/cache/uno_packages'
         for i in re_search:
             if cfg['extension_name'] in i[1]:
-                return i[0]
+                cache_dir = i[0] + ".tmp_"
+                return os.path.join(
+                    cfg['user_directory'],
+                    uno_pkg,
+                    cache_dir,
+                    self.filename
+                )
 
     @property
     def is_installed(self):
